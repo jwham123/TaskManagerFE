@@ -1,0 +1,27 @@
+body {
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+
+    margin: 0;
+    height: 100vh; /* 100 vertical height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* The three properties above will both vertically and horizantally justify the container in the center */
+    font-size: 18px;
+    background: #fff;background-image:url("../../../assets/images/Orange Background2.jpg");
+    background-size: cover; /* ensures the entire background covers the screen */
+}
+
+mat-sidenav-container {
+    height: calc(205vh - 115vh);
+}
+
+mat-sidenav {
+    width: 200px;
+    background-color: cornflowerblue;
+}

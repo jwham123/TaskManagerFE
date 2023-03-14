@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Task } from 'src/app/models/task';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -11,11 +12,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit{
 
+  loginError = false;
+  registerError1 = false;
+  registerError2 = false;
+
+  tasks:Task[] = [];
+
   registerForm = new UntypedFormGroup({
     firstName: new UntypedFormControl(''),
     lastName: new UntypedFormControl(''),
     email: new UntypedFormControl(''),
     password: new UntypedFormControl(''),
+    confirmPassword: new UntypedFormControl('')
   })
   
   loginForm = new UntypedFormGroup({
@@ -34,13 +42,38 @@ export class LoginComponent implements OnInit{
     this.loginVisi = !this.loginVisi;
   }
 
-  onSubmit(): void {
+  onSubmitLogin(): void {
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       () => {
         this.authService.loggedIn=true;
+        this.loginError=false;
       },
-      (err) => console.log(err),
-      () => this.router.navigate(['home'])
+      (err) => this.loginError=true,
+      () => 
+      setTimeout(() => {
+        this.router.navigate(['home']);
+      }, 1500),
+    );
+  }
+
+  onSubmitRegister(): void {
+    if (this.registerForm.get('password')?.value != this.registerForm.get('confirmPassword')?.value) { // compares password values
+           this.registerError2 = true;
+           return;
+        }
+        this.registerError2 = false;
+    this.authService.register(this.registerForm.get('firstName')?.value, this.registerForm.get('lastName')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value, this.tasks).subscribe(
+      () => {
+        console.log("New user registered");
+        this.registerError1 = false;
+      },
+      (err) => {
+        this.registerError1=true // email already has an account associated with it
+      },
+      () =>
+      setTimeout(() => {
+        this.loginVisi=false;
+      }, 1000),
     );
   }
 
