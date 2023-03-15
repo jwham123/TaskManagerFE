@@ -1,6 +1,8 @@
+import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Task } from 'src/app/models/task';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -43,16 +45,18 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmitLogin(): void {
+    console.log(this.authService);
+
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       () => {
-        this.authService.loggedIn=true;
         this.loginError=false;
       },
       (err) => this.loginError=true,
       () => 
       setTimeout(() => {
         this.router.navigate(['home']);
-      }, 1500),
+      }, 1),
+      
     );
   }
 

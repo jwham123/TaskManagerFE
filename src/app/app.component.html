@@ -1,3 +1,29 @@
-<div>
+<app-sidebar></app-sidebar> <!-- copy the selector of the navigation bar to have it appear on every component-->
   <router-outlet></router-outlet>
-</div>
+
+
+<!-- <mat-toolbar color="primary" *ngIf="loggedIn">
+  <mat-toolbar-row>
+      <h4>Right click</h4>
+      <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+      <button mat-button><mat-icon>home</mat-icon>Home</button>
+  </mat-toolbar-row>
+ </mat-toolbar>
+ 
+ <mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side" *ngIf="loggedIn">
+      <a routerLink="/newTask">New Task</a>
+      <br>
+      <a routerLink="/taskView">Task View</a>
+      <br>
+      <a routerLink="/calendarView">Calendar View</a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  </mat-sidenav-container>
+  -->
+ 
+  <!-- <app-sidebar>
+    <router-outlet></router-outlet>
+  </app-sidebar> -->

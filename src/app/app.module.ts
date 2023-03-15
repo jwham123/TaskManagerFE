@@ -14,7 +14,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TaskViewComponent } from './components/task-view/task-view.component';
 import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { MatIconModule } from '@angular/material/icon'
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
