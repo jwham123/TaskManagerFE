@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" *ngIf="(loginStatus$ | async) as LoginStatus">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary" *ngIf="(loginStatus$ | async) as LoginStatus">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar w/ text</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,5 +21,62 @@
       </span>
     </div>
   </div>
-</nav>
+</nav> 
+
+*ngIf="(loginStatus$ | async) as LoginStatus"
+-->
+
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2>Personal Ticketing Manager</h2>
+      <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+      <button mat-button (click)="getCurrentRoute()"><mat-icon>home</mat-icon>Home</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <ul class="sidenav-item my-3"> 
+      <li class="sidenav-item my-3">
+        <a (click)="getCurrentRoute()" routerLink="newTask" class="sidenav-link p-0 d-flex justify-content center ripple-surface ripple-surface-light" tabindex="1">
+          <i class="far fa-plus-square fa-2x">
+            New Task
+          </i>
+        </a>
+      </li>
+      <li class="sidenav-item my-3"> 
+        <a (click)="getCurrentRoute()" routerLink="taskView" class="sidenav-link p-0 d-flex justify-content center ripple-surface ripple-surface-light" tabindex="1">
+          <i class="far fa-file-alt fa-2x">
+            Task View
+          </i>
+        </a>
+    </li>
+    <li class="sidenav-item my-3">
+      <a (click)="getCurrentRoute()" routerLink="calendarView" class="sidenav-link p-0 d-flex justify-content center ripple-surface ripple-surface-light" tabindex="1">
+         <i class="far fa-calendar-alt fa-2x">
+            Calendar View
+        </i>
+      </a>
+  </li>
+  <li class="sidenav-item my-3">
+    <a class="sidenav-link p-0 d-flex justify-content center ripple-surface ripple-surface-light" tabindex="1">
+      <i class="far fa-user fa-2x">
+            Profile
+      </i>
+    </a>
+  </li>
+  </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
 

@@ -1,0 +1,89 @@
+ mat-sidenav-container {
+    height: calc(205vh - 115vh);
+}
+
+mat-sidenav {
+    width: 215px;
+    background-color: white;
+} 
+
+/* .fa, .far, .fas {
+    font-family:"Font Awesome 5 Free";
+} */
+
+.fa-2x {
+    font-size: 1.5em;
+}
+
+/* .fa, .fab, .fad, .fal, .far, .fas {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+} */
+
+.sidenav-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: .89rem;
+    padding: 1rem 1.5rem;
+    height: 3rem;
+    color: unset;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 5px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sidenav.collapse, .sidenav-menu {
+    list-style: none;
+    position: relative;
+    padding: 0 .2rem;
+    margin: 0;
+}
+
+a {
+    color:red;
+    font-style: normal;
+}
+.sidenav-item {
+    color:black;
+    list-style: none;
+    font-style: normal;
+    font-weight: 100;
+}
+
+.selecteda {
+    color:brown;
+    background-color: chartreuse;
+}
+
+a:hover {
+    color:rgb(255,171,0);
+    font-style: italic;
+    background-color: rgb(255,252,243);
+    border-width: 2;
+    margin-left: 2.2rem;
+}
+
+a::selection {
+    color:crimson;
+}
+
+h2 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:1.7rem;
+}
+

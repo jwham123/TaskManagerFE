@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit{
   loginError = false;
   registerError1 = false;
   registerError2 = false;
+  loginStatus$ = new BehaviorSubject<boolean>(false);
 
   tasks:Task[] = [];
 
@@ -38,6 +39,9 @@ export class LoginComponent implements OnInit{
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.authService.globalStateChanged.subscribe(state => {
+      this.loginStatus$.next(state.loggedInStatus)
+    });
   }
   
   switchVisi() {

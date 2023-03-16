@@ -1,6 +1,8 @@
+<!-- *ngIf="!(loginStatus$ | async) as LoginStatus" -->
+
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet"> 
 <!-- aquired the above link from fonts.google.com, selected the fonts and used them in the css file ("quicksand")-->
-<body>
+<body >
     <div class="container">
         <form class="form" id="login" [formGroup]="loginForm" *ngIf="loginVisi === false">
             <h1 class="form__title">Login</h1>

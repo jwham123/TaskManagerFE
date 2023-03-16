@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { state } from '@angular/animations';
 
 @Component({
@@ -16,6 +16,10 @@ export class SidebarComponent implements OnInit {
 
   loginStatus$ = new BehaviorSubject<boolean>(false);
   firstName$?:Observable<String>;
+  opened = false;
+
+  compNum:number = 0;
+
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -27,5 +31,41 @@ export class SidebarComponent implements OnInit {
     this.firstName$ = this.authService.currentfirstName;
   }
 
-  
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  getCurrentRoute() {
+    let currentRoute = window.location.href.slice(22);
+    console.log(currentRoute);
+
+    // switch(currentRoute) {
+    //   case "newTask":
+    //     this.compNum = 1;
+    //     console.log("compNum: "+this.compNum);
+    //     break;
+    //   case "taskView":
+    //     this.compNum = 2;
+    //     console.log("compNum: "+this.compNum);
+    //     break;
+    //   case "calendarView":
+    //     this.compNum = 3;
+    //     console.log("compNum: "+this.compNum);
+    //     break;
+    //   default:
+    //     this.compNum = 0;
+    //     console.log("compNum: "+this.compNum);
+    //   }
+
+    if (currentRoute == 'newTask') {
+      this.compNum = 1;
+    } else if (currentRoute == 'taskView') {
+      this.compNum = 2;
+    } else if (currentRoute == 'calendarView') {
+      this.compNum = 3;
+    } else {
+      this.compNum = 0;
+    }
+    console.log(this.compNum);
+  }
 }

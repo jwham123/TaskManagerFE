@@ -8,7 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TaskViewComponent } from './components/task-view/task-view.component';
 
 const routes: Routes = [
-  { path: "",  redirectTo: "/login", pathMatch:"full"},
+  { path: "",  redirectTo: "/home", pathMatch:"full"},
   { path: "login", component:LoginComponent},
   { path: "home", component:HomePageComponent},
   { path: "sideBar", component:SidebarComponent},
