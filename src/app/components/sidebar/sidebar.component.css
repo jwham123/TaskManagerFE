@@ -1,3 +1,9 @@
+mat-toolbar {
+    color: black;
+    background-color: #A2ABCE;
+} 
+
+
  mat-sidenav-container {
     height: calc(205vh - 115vh);
 }
@@ -7,21 +13,37 @@ mat-sidenav {
     background-color: white;
 } 
 
-/* .fa, .far, .fas {
+.mat-button {
+    width: 8em;
+    height: 2.5em;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+.fa, .far, .fas {
     font-family:"Font Awesome 5 Free";
-} */
+}
 
 .fa-2x {
     font-size: 1.5em;
 }
 
-/* .fa, .fab, .fad, .fal, .far, .fas {
+.fa, .fab, .fad, .fal, .far, .fas {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     line-height: 1;
-} */
+}
 
 .sidenav-link {
     display: -webkit-box;
@@ -74,8 +96,6 @@ a:hover {
     color:rgb(255,171,0);
     font-style: italic;
     background-color: rgb(255,252,243);
-    border-width: 2;
-    margin-left: 2.2rem;
 }
 
 a::selection {
@@ -85,5 +105,9 @@ a::selection {
 h2 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size:1.7rem;
+}
+
+.active {
+    color:rgb(255,171,0);
 }
 
