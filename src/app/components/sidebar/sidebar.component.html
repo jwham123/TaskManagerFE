@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-<mat-toolbar>
+<mat-toolbar *ngIf="(loginStatus$ | async) as LoginStatus">
   <mat-toolbar-row>
     <h2>Personal Ticketing Manager</h2>
       <button class="mat-button" mat-button (click)="opened=!opened"><mat-icon style="font-size:20px;">menu</mat-icon></button>
@@ -39,7 +39,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
+<mat-sidenav-container *ngIf="(loginStatus$ | async) as LoginStatus">
   <mat-sidenav [(opened)]="opened" mode="side">
     <ul class="sidenav-item my-3"> 
       <li class="sidenav-item my-3">

@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
 
   loginStatus$ = new BehaviorSubject<boolean>(false);
   firstName$?:Observable<String>;
-  opened = false;
+  opened = true;
 
   compNum:number = 0;
 
