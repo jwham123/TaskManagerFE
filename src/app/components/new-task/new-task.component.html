@@ -1,1 +1,22 @@
 <p>new-task works!</p>
+
+<form id="task-form" [formGroup]="taskForm">
+    <div class="form-group">
+    <div class="form__input-group">
+        <input type="text" class="form__input" formControlName="name" autofocus placeholder="Task name">
+    </div>
+    <div class="form__input-group">
+        <input type="text" class="form__input" formControlName="description" autofocus placeholder="Description of task">
+    </div>
+    <div class="form__input-group">
+        <input type="text" class="form__input" formControlName="date" autofocus placeholder="Date to start task">
+    </div>
+    <div class="form__input-group">
+        <input type="text" class="form__input" formControlName="time" autofocus placeholder="Time to start task">
+    </div>
+    <div class="form__input-group">
+        <input type="text" class="form__input" formControlName="estTime" autofocus placeholder="Estimated time to complete task">
+    </div>
+    <button class="form_button" type="submit" (click)="createTask()">Add task</button> 
+    </div>
+</form>

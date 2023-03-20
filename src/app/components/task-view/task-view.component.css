@@ -1,0 +1,7 @@
+.individual__task {
+    background-color: cadetblue;
+    padding: 2rem;
+    margin: 0.5rem;
+    box-shadow: 0 0 8px rgb(33, 178, 204);
+    border-radius: 1em;
+}

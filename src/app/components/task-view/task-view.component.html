@@ -1,1 +1,35 @@
 <p>task-view works!</p>
+
+<div class="tasks">
+    <div class="grid-container">
+        <div *ngFor="let task of tasks">
+            <div class="individual__task">
+                Task Name: {{task?.name}} 
+                Description: {{task?.description}}
+                Date: {{task?.date}}
+                Time: {{task?.time}}
+                Estimated time to complete: {{task?.estTime}}
+                Completed? {{task.completed}}
+            </div> 
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Task</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Completed?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{task?.name}}</td>
+            <td>{{task?.description}}</td>
+            <td>{{task?.date}}</td>
+            <td>{{task?.completed}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -34,21 +34,8 @@ export class AuthService extends ObservableStore<StoreState>{ // must npm instal
     return loginCookie == '1';
   }
 
-
-
-
-
-
-
-
-
-
-
-
   login(email:string, password:string): Observable<any> {
     let isSessionActive = localStorage.getItem('isSessionActive');
-
-   
 
     const payload = {email:email, password:password};
     return this.http.post<any>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials})
@@ -60,17 +47,6 @@ export class AuthService extends ObservableStore<StoreState>{ // must npm instal
           this.firstName.next(this.cookieService.get('firstName'));
             }));
   }
-
-
-
-
-
-
-
-
-
-
-
 
   logout(): void {
     this.http.post(`${this.authUrl}/logout`,null);
