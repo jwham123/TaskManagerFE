@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
+import { CompletedPipe } from 'src/app/pipes/completed.pipe';
 
 @Component({
   selector: 'app-task-view',

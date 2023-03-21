@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-new-task',
@@ -11,15 +14,6 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
-
-  
-  // name:string='';
-  // description?:string;
-  // date?:string;
-  // time?:string;
-  // estTime?:number;
-  // completed:boolean = false;
-  // user?:User;
 
   taskForm = new UntypedFormGroup({
     name: new UntypedFormControl(''),
@@ -34,6 +28,7 @@ export class NewTaskComponent implements OnInit {
     private taskService:TaskService,
     private fb: FormBuilder,
     private router: Router
+    //private dateAdapter: DateAdapter<Date>
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +36,12 @@ export class NewTaskComponent implements OnInit {
   }
 
   createTask() {
+    const dateObj = this.taskForm.get('date')?.value;
+    const jsonString = JSON.stringify(dateObj);
+    console.log(jsonString);
+    console.log(typeof jsonString);
+    console.log(jsonString.substring(0,9));
+
     this.taskService.createTask(this.taskForm.get('name')?.value, this.taskForm.get('description')?.value, this.taskForm.get('date')?.value, this.taskForm.get('time')?.value,
     this.taskForm.get('estTime')?.value).subscribe (
       () => {
@@ -49,4 +50,13 @@ export class NewTaskComponent implements OnInit {
       (err) => console.log(err)
     );
   }
+
+  // onDateInput(event: MatDatepickerInputEvent<Date> | null) {
+  //   if (event !== null) {
+  //     const parsedDate = this.dateAdapter.format(event?.value, 'MM/dd/yyyy');
+  //     console.log('parsed date: '+parsedDate);
+  //   }
+    
+    
+  //}
 }

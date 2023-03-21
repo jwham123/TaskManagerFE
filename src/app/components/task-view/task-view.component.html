@@ -1,21 +1,25 @@
 <p>task-view works!</p>
+<div class="column__values">
+    <span class="column__value">Task</span>
+    <span class="column__value">Description</span>
+    <span class="column__value">Due Date</span>
+    <span class="column__value">Completed?</span>
+</div>
 
 <div class="tasks">
     <div class="grid-container">
         <div *ngFor="let task of tasks">
-            <div class="individual__task">
-                Task Name: {{task?.name}} 
-                Description: {{task?.description}}
-                Date: {{task?.date}}
-                Time: {{task?.time}}
-                Estimated time to complete: {{task?.estTime}}
-                Completed? {{task.completed}}
+            <div class="row__values">
+                <span class="row__value">{{task?.name}}</span> 
+                <span class="row__value">{{task?.description}}</span>
+                <span class="row__value">{{task?.date}}</span>
+                <span class="row__value">{{task.completed | completed}}</span>
             </div> 
         </div>
     </div>
 </div>
 
-<table class="table table-hover">
+<!-- <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Task</th>
@@ -32,4 +36,4 @@
             <td>{{task?.completed}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->

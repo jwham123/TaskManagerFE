@@ -8,9 +8,17 @@
     <div class="form__input-group">
         <input type="text" class="form__input" formControlName="description" autofocus placeholder="Description of task">
     </div>
-    <div class="form__input-group">
-        <input type="text" class="form__input" formControlName="date" autofocus placeholder="Date to start task">
-    </div>
+
+    <!-- <div class="form__input-group">
+        <input matInput [matDatepicker]="picker" class="form__input" formControlName="date" autofocus placeholder="Date to start task">
+    </div> -->
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <div class="form__input-group">
         <input type="text" class="form__input" formControlName="time" autofocus placeholder="Time to start task">
     </div>
@@ -20,3 +28,17 @@
     <button class="form_button" type="submit" (click)="createTask()">Add task</button> 
     </div>
 </form>
+
+<!-- <mat-form-field>
+    <input matInput [matDatepicker]="picker" (dateInput)="onDateInput($event)">
+    <mat-datepicker-toggle matSuffoc [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>  -->
+
+ 
+
+<!-- <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
